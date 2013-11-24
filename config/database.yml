@@ -7,6 +7,5 @@ development:
   adapter: postgresql
   database: development-text_roulette
   host: localhost
-  user: jtleard
   pool: 5
   timeout: 5000
