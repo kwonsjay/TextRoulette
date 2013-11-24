@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.date :birthday
     	t.boolean :nsfw, :default => false
     	t.boolean :looking_for_pairs, :default => false
+      t.string :password_digest, :null => false
 
       t.timestamps
     end
