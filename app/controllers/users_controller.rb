@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :require_current_user!, :only => [:show]
+  before_filter :require_no_current_user!, :only => [:create, :new]
+  
   def new
+    @user = User.new
     render :new
   end
   
@@ -7,13 +11,18 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
-      redirect_to user_url
+      self.current_user = @user
+      redirect_to user_url(@user)
     else
       redirect_to new_session_url
     end
   end
   
   def show
-    render :show
+    if params.include?(:id)
+      @user = User.find(params[:id])
+    else
+      redirect_to new_session_url
+    end
   end
 end

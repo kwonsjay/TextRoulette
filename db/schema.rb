@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131124004543) do
-
-  create_table "conversations", :force => true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
-    t.boolean  "nsfw"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id", :unique => true
+ActiveRecord::Schema.define(:version => 20131124001207) do
 
   create_table "users", :force => true do |t|
     t.integer  "phone",                                :null => false
