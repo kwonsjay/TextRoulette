@@ -1,6 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require 'yaml'
+rails_root = Rails.root || File.dirname(__FILE__) + '/../..'
+config = YAML.load_file(rails_root.to_s + '/config/env_vars.yml')
+if config.key?(Rails.env) && config[Rails.env].is_a?(Hash)
+  config[Rails.env].each do |key, value|
+    ENV[key] = value.to_s
+  end
+end
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
