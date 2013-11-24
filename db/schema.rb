@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131124001207) do
+ActiveRecord::Schema.define(:version => 20131124013406) do
+
+  create_table "conversations", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.boolean  "nsfw"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.integer  "phone",                                :null => false
@@ -22,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20131124001207) do
     t.boolean  "looking_for_pairs", :default => false
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.string   "session_token"
   end
 
   add_index "users", ["phone"], :name => "index_users_on_phone", :unique => true
