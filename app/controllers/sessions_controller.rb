@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
   end
   
   def new
+    p "WKJDLKSJDLKJLFKJSLKDJTLKDJGLJKDF"
     render :new
   end
   

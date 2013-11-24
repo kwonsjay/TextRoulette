@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-<<<<<<< HEAD
   attr_accessible :phone, :password, :zip_code, :birthday, :gender, :nsfw
   attr_reader :password
   
@@ -42,9 +41,3 @@ class User < ActiveRecord::Base
     self.session_token ||= self.class.generate_session_token
   end
 end
-=======
-  attr_accessible :phone, :gender, :zip_code, :birthday, :nsfw
-
-  has_one :conversation
-end
->>>>>>> 2489d88406a75a21198db9d31db2c317501bad88
