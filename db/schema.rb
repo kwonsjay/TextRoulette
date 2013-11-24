@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131124014535) do
     t.date     "birthday"
     t.boolean  "nsfw",              :default => false
     t.boolean  "looking_for_pairs", :default => false
+    t.string   "password_digest",                      :null => false
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.string   "session_token"
