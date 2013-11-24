@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131124013406) do
+ActiveRecord::Schema.define(:version => 20131124014535) do
 
   create_table "conversations", :force => true do |t|
     t.integer  "sender_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20131124013406) do
     t.boolean  "nsfw"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "inverse_id"
   end
 
   add_index "conversations", ["sender_id"], :name => "index_conversations_on_sender_id", :unique => true
